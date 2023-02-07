@@ -19,8 +19,15 @@ main {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  color: #2b283a;
+}
+.explanation {
+  text-align: center;
+  font-size: 11px;
+  color: #4a4e74;
+  font-weight: 400;
 }
 .dice {
   display: grid;
@@ -39,4 +46,23 @@ main {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+button {
+  height: 40px;
+  width: 100px;
+  border: none;
+  border-radius: 6px;
+  background-color: #5035ff;
+  color: white;
+  font-size: 1.2rem;
+  font-family: "Karla", sans-serif;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:active {
+  box-shadow: inset 4px 4px 8px -3px rgba(0, 0, 0, 0.2);
 }
