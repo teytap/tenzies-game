@@ -12,8 +12,8 @@ body {
   font-family: "Karla", sans-serif;
 }
 main {
-  height: 320px;
-  width: 320px;
+  height: 360px;
+  width: 390px;
   background: #f5f5f5;
   border-radius: 10px;
   padding: 20px;
@@ -25,14 +25,19 @@ main {
 }
 .explanation {
   text-align: center;
-  font-size: 11px;
+  font-size: 15px;
   color: #4a4e74;
   font-weight: 400;
+  padding: 0px 18px;
+}
+.explanation h1 {
+  margin-bottom: 10px;
 }
 .dice {
   display: grid;
   grid-template: auto auto / repeat(5, 1fr);
-  grid-gap: 16px;
+  grid-gap: 28px;
+  margin-bottom: 20px;
 }
 .die {
   border-radius: 4px;
@@ -64,4 +69,9 @@ button:focus {
 
 button:active {
   box-shadow: inset 4px 4px 8px -3px rgba(0, 0, 0, 0.2);
+}
+.score {
+  font-size: 18px;
+  color: #59e391;
+  font-weight: bold;
 }
