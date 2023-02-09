@@ -35,7 +35,6 @@ main {
   grid-gap: 16px;
 }
 .die {
-  background-color: white;
   border-radius: 4px;
   height: 40px;
   width: 40px;
@@ -49,7 +48,7 @@ main {
 }
 button {
   height: 40px;
-  width: 100px;
+  width: 150px;
   border: none;
   border-radius: 6px;
   background-color: #5035ff;
