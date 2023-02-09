@@ -8,13 +8,14 @@ import "./App.css";
 export default function App() {
   const [dice, setDice] = React.useState(newDice());
   const [tenzies, setTenzies] = React.useState(false);
+  const [count, setCount] = React.useState(1);
+
   React.useEffect(() => {
     const allHeld = dice.every((die) => die.isHeld);
     const firstValue = dice[0].value;
     const allSameValue = dice.every((die) => die.value === firstValue);
     if (allHeld && allSameValue) {
       setTenzies(true);
-      console.log("you won");
     }
   }, [dice]);
 
@@ -22,21 +23,24 @@ export default function App() {
     let diceArray = [];
     for (let i = 0; i < 10; i++) {
       diceArray.push({
-        value: Math.floor(Math.random() * 6 + 1),
+        value: Math.floor(Math.random() * 6),
         isHeld: false,
         id: nanoid(),
       });
     }
     return diceArray;
   }
+
   function rollDice() {
+    setCount(count + 1);
+    console.log(count);
     if (!tenzies) {
       setDice((prevDice) =>
         prevDice.map((die) => {
           return die.isHeld
             ? die
             : {
-                value: Math.floor(Math.random() * 6 + 1),
+                value: Math.floor(Math.random() * 6),
                 isHeld: false,
                 id: nanoid(),
               };
@@ -49,7 +53,6 @@ export default function App() {
   }
 
   function holdDice(id) {
-    console.log(id);
     setDice((prevDice) =>
       prevDice.map((die) => {
         return die.id === id ? { ...die, isHeld: !die.isHeld } : die;
@@ -70,8 +73,9 @@ export default function App() {
       <div className="explanation">
         <h1>Tenzies</h1>
         <p>
-          Roll untill all dice are the same. Click each die to freeze it at its
-          current value betwen rolls.
+          {tenzies === true
+            ? `You won in ${count} rolls!`
+            : `Roll untill all dice are the same. Click each die to freeze it at its current value betwen rolls.`}
         </p>
       </div>
       <div className="dice">{diceElements}</div>
