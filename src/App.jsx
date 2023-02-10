@@ -10,9 +10,9 @@ export default function App() {
   const [tenzies, setTenzies] = React.useState(false);
   const [count, setCount] = React.useState(1);
 
-  const [time, setTime] = React.useState(0);
+  const [time, setTime] = React.useState(Date.now());
   const [start, setStart] = React.useState(Date.now());
-  let passedTime = Math.round((time - start) / 1000);
+  const passedTime = Math.round((time - start) / 1000);
 
   React.useEffect(() => {
     // if every die isHeld and all the values are same game is won
@@ -24,9 +24,9 @@ export default function App() {
     if (allHeld && allSameValue) {
       setTenzies(true);
       setTime(Date.now());
-      localStorage.setItem("bestTime", passedTime);
     }
   }, [dice]);
+
   function newDice() {
     //generates dice array of 6 objects with die properties
     let diceArray = [];
@@ -84,6 +84,7 @@ export default function App() {
       holdDice={() => holdDice(die.id)}
     />
   ));
+
   return (
     <main>
       {/* confetti starts when game is won */}
@@ -100,7 +101,6 @@ export default function App() {
         ) : (
           `Roll until all dice are the same. Click each die to freeze it at
               its current value between rolls.`
-          // + localStorage.getItem("bestTime")
         )}
       </div>
       <div className="dice">{diceElements}</div>

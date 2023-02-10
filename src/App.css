@@ -88,3 +88,13 @@ button:active {
   color: #59e391;
   font-weight: bold;
 }
+@media (max-width: 375px) {
+  main {
+    width: 340px;
+    margin: 20px;
+    padding: 10px;
+  }
+  .dice {
+    grid-gap: 22px;
+  }
+}
