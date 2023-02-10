@@ -94,12 +94,13 @@ export default function App() {
         {/* changes instruction to you won! when game is won */}
         {tenzies === true ? (
           <div>
-            You won in <span className="score">{count}</span> rolls and{" "}
+            You won in <span className="score">{count}</span> rolls and in{" "}
             <span className="score">{passedTime}</span> seconds!
           </div>
         ) : (
           `Roll until all dice are the same. Click each die to freeze it at
               its current value between rolls.`
+          // + localStorage.getItem("bestTime")
         )}
       </div>
       <div className="dice">{diceElements}</div>
