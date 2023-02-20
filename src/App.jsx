@@ -24,6 +24,7 @@ export default function App() {
     if (allHeld && allSameValue) {
       setTenzies(true);
       setTime(Date.now());
+      // stores the best score of rolls
       localStorage.setItem(
         "bestCount",
         localStorage.getItem("bestCount") < count
@@ -102,12 +103,17 @@ export default function App() {
         {tenzies === true ? (
           <div>
             You won in <span className="score">{count}</span> rolls and in{" "}
-            <span className="score">{passedTime}</span> seconds! Best score is
-            in{" "}
-            <span className="best--score">
-              {localStorage.getItem("bestCount")}
-            </span>{" "}
-            rolls.
+            <span className="score">{passedTime}</span> seconds!{" "}
+            {/* conditional rendering:if bestCount exists show the sentence */}
+            {localStorage.getItem("bestCount") && (
+              <span>
+                Best score is in{" "}
+                <span className="best--score">
+                  {localStorage.getItem("bestCount")}
+                </span>{" "}
+                rolls.
+              </span>
+            )}
           </div>
         ) : (
           `Roll until all dice are the same. Click each die to freeze it at
