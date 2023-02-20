@@ -24,6 +24,12 @@ export default function App() {
     if (allHeld && allSameValue) {
       setTenzies(true);
       setTime(Date.now());
+      localStorage.setItem(
+        "bestCount",
+        localStorage.getItem("bestCount") < count
+          ? localStorage.getItem("bestCount")
+          : count
+      );
     }
   }, [dice]);
 
@@ -96,7 +102,12 @@ export default function App() {
         {tenzies === true ? (
           <div>
             You won in <span className="score">{count}</span> rolls and in{" "}
-            <span className="score">{passedTime}</span> seconds!
+            <span className="score">{passedTime}</span> seconds! Best score is
+            in{" "}
+            <span className="best--score">
+              {localStorage.getItem("bestCount")}
+            </span>{" "}
+            rolls.
           </div>
         ) : (
           `Roll until all dice are the same. Click each die to freeze it at

@@ -88,6 +88,11 @@ button:active {
   color: #59e391;
   font-weight: bold;
 }
+.best--score {
+  font-size: 18px;
+  color: #5035ff;
+  font-weight: bold;
+}
 @media (max-width: 375px) {
   main {
     width: 340px;
