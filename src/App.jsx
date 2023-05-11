@@ -105,7 +105,7 @@ export default function App() {
             You won in <span className="score">{count}</span> rolls and in{" "}
             <span className="score">{passedTime}</span> seconds!{" "}
             {/* conditional rendering:if bestCount exists show the sentence */}
-            {localStorage.getItem("bestCount") && (
+            {localStorage.getItem("bestCount") !== null && (
               <span>
                 Best score is in{" "}
                 <span className="best--score">
