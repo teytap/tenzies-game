@@ -12,6 +12,7 @@ export default function App() {
 
   const [time, setTime] = React.useState(Date.now());
   const [start, setStart] = React.useState(Date.now());
+
   const passedTime = Math.round((time - start) / 1000);
 
   React.useEffect(() => {
@@ -102,12 +103,12 @@ export default function App() {
         {/* changes instruction to you won! when game is won */}
         {tenzies === true ? (
           <div>
-            You won in <span className="score">{count}</span> rolls and in{" "}
+            ⏱ You won in <span className="score">{count}</span> rolls and in{" "}
             <span className="score">{passedTime}</span> seconds!{" "}
             {/* conditional rendering:if bestCount exists show the sentence */}
             {localStorage.getItem("bestCount") !== null && (
               <span>
-                Best score is in{" "}
+                🏆 Best score is in{" "}
                 <span className="best--score">
                   {localStorage.getItem("bestCount")}
                 </span>{" "}
