@@ -9,6 +9,9 @@ export default function App() {
   const [dice, setDice] = React.useState(newDice());
   const [tenzies, setTenzies] = React.useState(false);
   const [count, setCount] = React.useState(1);
+  const [bestCount, setBestCount] = React.useState(
+    JSON.parse(localStorage.getItem("bestcount")) || 0
+  );
 
   const [time, setTime] = React.useState(Date.now());
   const [start, setStart] = React.useState(Date.now());
@@ -27,11 +30,15 @@ export default function App() {
       setTime(Date.now());
       // stores the best score of rolls
       localStorage.setItem(
-        "bestCount",
-        localStorage.getItem("bestCount") < count
-          ? localStorage.getItem("bestCount")
+        "bestcount",
+        localStorage.getItem("bestcount") < count
+          ? localStorage.getItem("bestcount")
           : count
       );
+      if (count < bestCount || bestCount === 0) {
+        localStorage.setItem("bestcount", count);
+        setBestCount(count);
+      }
     }
   }, [dice]);
 
@@ -106,13 +113,10 @@ export default function App() {
             ⏱ You won in <span className="score">{count}</span> rolls and in{" "}
             <span className="score">{passedTime}</span> seconds!{" "}
             {/* conditional rendering:if bestCount exists show the sentence */}
-            {localStorage.getItem("bestCount") !== null && (
+            {bestCount !== 0 && (
               <span>
                 🏆 Best score is in{" "}
-                <span className="best--score">
-                  {localStorage.getItem("bestCount")}
-                </span>{" "}
-                rolls.
+                <span className="best--score">{bestCount}</span> rolls.
               </span>
             )}
           </div>
