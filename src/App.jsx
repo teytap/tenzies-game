@@ -40,7 +40,7 @@ export default function App() {
         localStorage.setItem("bestcount", count);
         setBestCount(count);
       }
-
+      //---best time---
       if (passedTime < bestTime || bestTime === 0) {
         setBestTime(passedTime);
         localStorage.setItem("besttime", passedTime.toString());
@@ -116,7 +116,12 @@ export default function App() {
         {/* ---changes instruction to you won! when game is won--- */}
         {tenzies === true ? (
           <div>
-            ⏱ You won in <span className="score">{count}</span> rolls and in{" "}
+            <h2 className="message">
+              {bestCount >= count || bestTime >= passedTime
+                ? "High score!"
+                : "You won!"}
+            </h2>
+            ⏱ In <span className="score">{count}</span> rolls and in{" "}
             <span className="score">{passedTime}</span> seconds!{" "}
             {/* ---conditional rendering:if bestCount exists show the sentence--- */}
             {bestCount !== 0 && (

@@ -12,7 +12,7 @@ body {
   font-family: "Karla", sans-serif;
 }
 main {
-  height: 360px;
+  height: 400px;
   width: 390px;
   background: #f5f5f5;
   border-radius: 10px;
@@ -64,6 +64,7 @@ main {
     transform: rotate(180deg);
   }
 }
+
 button {
   height: 40px;
   width: 150px;
@@ -92,6 +93,32 @@ button:active {
   font-size: 18px;
   color: #5035ff;
   font-weight: bold;
+}
+.message {
+  color: orange;
+  margin: 0;
+  animation-name: colors;
+  animation-duration: 2s;
+}
+@keyframes colors {
+  0% {
+    color: orange;
+  }
+  20% {
+    color: white;
+  }
+  40% {
+    color: orange;
+  }
+  60% {
+    color: white;
+  }
+  80% {
+    color: orange;
+  }
+  100% {
+    color: white;
+  }
 }
 @media (max-width: 375px) {
   main {
